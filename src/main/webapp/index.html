@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="tabs">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active program-memory"><a href="#programMemory" data-toggle="tab">PROGRAM MEMORY</a></li>
+                <li class="output-information"><a href="#outputInformation" data-toggle="tab">OUTPUT INFORMATION</a>
+                </li>
+                <li class="compiler"><a href="#compiler" data-toggle="tab">COMPILER</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="programMemory">
+                    <div class="right-block pr-mem">
+                        <p class="article">MEMORY</p>
+                        <hr>
+                        <p>
+                            <button type="button" class="btn btn-side-panel btn-pr-mem" id="read">Read</button>
+                        </p>
+                        <hr>
+                        <p>
+                            <button type="button" class="btn btn-side-panel btn-pr-mem" id="write">Write</button>
+                        </p>
+                        <hr>
+                        <p>
+                            <a href="clear">
+                                <button type="button" class="btn btn-side-panel btn-pr-mem" id="clear">Clear</button>
+                            </a>
+                        </p>
+                        <hr>
+
+                    </div>
+                    <div id="memory-table">
+                        <script>
+                            var table = "";
+                            table += '<table class=\" table table-bordered \">';
+                            table += '<thead>';
+                            table += '<tr>';
+                            table += '<th>' + "" + '</th>';
+                            for (var i = 48; i < 58; i++) {
+                                table += "<th>0" + String.fromCharCode(i) + '</th>';
+                            }
+
+                            for (var i = 65; i < 71; i++) {
+                                table += "<th>0" + String.fromCharCode(i) + '</th>';
+                            }
+
+                            table += '</tr>';
+                            table += '</thead>';
+
+                            table += '<tbody>';
+                            var id = 0;
+                            for (var i = 0; i < 16; i++) {
+                                table += '<tr>';
+                                table += '<th>' + "0000" + '</th>';
+                                for (var j = i * 16; j < (i + 1) * 16; j++) {
+                                    var cell = "cell" + id;
+                                    table += '<td id="td' + id + '">' + '<input size="1" type="text" value="00" class="input-text"' +
+                                        'id="' + cell + '" pattern="[0-9A-F]{2}" maxlength="2" onchange="changeInf(' + cell + ');" required>' + '</td>';
+                                    id++;
+                                }
+
+                                table += '</tr>';
+                            }
+                            table += '</tbody>';
+                            table += '</table>';
+                            document.write(table);
+                        </script>
+
+                    </div>
+                    <div id="text"></div>
+                    <div class="footer">
+                        <button type="button" class="btn btn-default" onclick="openFile();" id="open">Open</button>
+                        <button type="button" class="btn btn-default" id="save">Save</button>
+                        <!--<a href="data:text/text;charset=utf-8,Hello" download>href</a>-->
+                        <script>
+                            document.getElementById('save').onclick = function () {
+                                var table = getInformationFromTable();
+                                var text = generOutFile(table);
+                                var filename = "test1";
+                                var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+                                saveAs(blob, filename + ".txt");
+                            };
+                        </script>
+                    </div>
+                </div>
+                <div class="tab-pane" id="outputInformation">
+                    <div class="left-block">
+                        <p class="article">GENERATOR</p>
+                        <hr>
+                        <img class="gener-img" src="images/generator.jpg">
+                        <hr>
+                        <p>
+                            <button type="button" class="btn btn-side-panel btn-outp-inf" id="tact">Tact</button>
+                        </p>
+                        <hr>
+                        <p>
+                            <button type="button" class="btn btn-side-panel btn-outp-inf" id="cycle">Cycle</button>
+                        </p>
+                        <hr>
+                        <p>
+                            <button type="button" class="btn btn-side-panel btn-outp-inf" id="auto">Auto</button>
+                        </p>
+                        <hr>
+
+                        <div class="quantity">
+                            <input type="text" value="100 Hz">
+                            <button type="button" class="quantity-button quantity-up btn-quantity up">&#8963</button>
+                            <button type="button" class="quantity-button quantity-down btn-quantity down">&#8964
+                            </button>
+                            </input>
+                        </div>
+                    </div>
+
+                    <div class="graph-block">
+
+                    </div>
+
+                    <div class="right-block outp-inf">
+
+                        <p class="article ">DATA BUS</p>
+                        <div class="data-out">
+
+                        </div>
+
+                        <p class="article ">ADDRESS BUS</p>
+                        <div class="data-out">
+
+                        </div>
+
+                        <p class="article ">REGISTER OF COMMAND</p>
+                        <div class="data-out">
+
+                        </div>
+
+                        <p class="article ">REGISTER A</p>
+                        <div class="data-out">
+
+                        </div>
+
+                        <p class="article ">REGISTER B</p>
+                        <div class="data-out">
+
+                        </div>
+                        <p class="article">FC TRANSFER FLAG</p>
+                        <p style="color: #8b8b8b; margin-left: 25px">ZERO IN ACCUMULATOR FZ</p>
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="compiler">
+                    <p>Compiler</p>
+                    <button type="button" class="btn btn-default" onclick="convertToBin();">Convert from text to bin
+                    </button>
+                    <button type="button" class="btn btn-default" onclick="convertToText();">Convert from bin to text
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="js/workWithTable/changeInfTable.js"></script>
+<script type="text/javascript" src="js/convector/binToText.js"></script>
+<script type="text/javascript" src="js/convector/textToBin.js"></script>
+<script type="text/javascript" src="js/workWithChip/clear.js"></script>
+<script type="text/javascript" src="js/workWithFile/reader.js"></script>
+<script type="text/javascript" src="js/workWithFile/fileSaver.js"></script>
+<script type="text/javascript" src="js/workWithTable/getInfFromTable.js"></script>
+</body>
+</html>

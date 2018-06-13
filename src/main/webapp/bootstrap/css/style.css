@@ -1,0 +1,283 @@
+.container {
+    width: 1000px;
+}
+
+body {
+    background: url(../../images/background2.jpg) repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.tabs {
+    margin-top: 45px;
+}
+
+.nav-tabs.nav-justified > li > a {
+    background-color: #ccc;
+    border-top-color: #5e5e5e;
+    border-left-color: #5e5e5e;
+    border-right-color: #5e5e5e;
+}
+
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #ffffff;
+}
+
+.nav-tabs > li.active > a, .-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #ffffff;
+}
+
+.article {
+    color: #8b8b8b;
+    margin: 23px 12px -2px;
+    padding: 13px 13px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e4e4e4;
+
+    margin: 0 9px;
+
+}
+
+#save {
+    margin-left: 20px;
+}
+
+.footer {
+    padding-left: 45px;
+    padding-top: 10px;
+    padding-bottom: 21px;
+}
+
+.btn-default:hover {
+    background: #e7d8ff;
+    border: 1px solid #38315a;
+}
+
+.btn-default:focus {
+    background: #ffffff;
+    color: #38315a;
+    border: 1px solid #38315a;
+}
+
+.btn-default:active {
+    color: #ffffff;
+    background: #38315a;
+}
+
+.btn-default {
+    text-transform: uppercase;
+    font-weight: bold;
+
+    color: #38315a;
+    background: #ffffff;
+
+    padding: 7px 47px;
+
+    border-radius: 0;
+    border: 1px solid #38315a;
+}
+
+.btn-outp-inf {
+    padding: 13px;
+    text-indent: 13px;
+    text-align: left;
+}
+
+.btn-pr-mem {
+    padding: 19px;
+}
+
+.btn-side-panel:hover {
+    background-color: #c5c2c9;
+    color: #f4f4f4;
+}
+
+.btn-side-panel {
+    width: 100%;
+    border-radius: 0;
+    background-color: #f4f4f4;
+    color: #8b8b8b;
+    text-transform: uppercase;
+}
+
+.gener-img {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    height: 105px;
+    width: 200px;
+}
+
+#read {
+    background: url(../../images/icons/read.png) no-repeat 64px 18px;
+    background-size: 24px 21px;
+}
+
+#write {
+    background: url(../../images/icons/write.png) no-repeat 64px 18px;
+    background-size: 20px 21px;;
+}
+
+#clear {
+    background: url(../../images/icons/clean.png) no-repeat 64px 19px;
+    background-size: 18px 20px;
+}
+
+#read:hover {
+    background: #c5c2c9 url(../../images/icons/read-active.png) no-repeat 64px 18px;
+    background-size: 24px 21px;
+    color: #f4f4f4;
+}
+
+#write:hover {
+    background: #c5c2c9 url(../../images/icons/write-active.png) no-repeat 64px 18px;
+    background-size: 20px 21px;;
+    color: #f4f4f4;
+}
+
+#clear:hover {
+    background: #c5c2c9 url(../../images/icons/clean-active.png) no-repeat 64px 19px;
+    background-size: 18px 20px;
+    color: #f4f4f4;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.col-md-4 {
+    background: #f4f4f4;
+    position: absolute;
+}
+
+.left-block {
+    position: absolute;
+    background: #f4f4f4;
+    height: 100%;
+    width: 217px;
+    float: left;
+}
+
+.pr-mem {
+    width: 250px;
+}
+
+.outp-inf {
+    width: 290px;
+}
+
+.right-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #f4f4f4;
+    height: 100%;
+    float: right;
+}
+
+.left-column {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+INPUT.input-text {
+    border: 1px solid white;
+    text-align: center;
+}
+
+#memory-table {
+    margin-left: 45px;
+    padding-top: 30px;
+    width: 650px;
+    height: 100%;
+    background-color: white;
+}
+
+.table {
+    width: 650px;
+    height: 375px;
+}
+
+th {
+    padding: 3px;
+}
+
+thead, th {
+    background-color: #ebdaff;
+}
+
+td, th {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: smaller;
+    text-align: center;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 0px;
+}
+
+.tab-content {
+    position: relative;
+    width: 1000px;
+    height: 495px;
+    background: #ffffff;
+}
+
+/*https://codepen.io/komarovdesign/pen/PPRbgb*/
+.quantity {
+    position: relative;
+}
+
+.quantity input {
+    width: 175px;
+    height: 30px;
+    line-height: 1.65;
+    float: left;
+    display: block;
+    margin: 15px;
+    padding: 0 0 0 20px;
+    border: 1px solid #eee;
+}
+
+.quantity input:focus {
+    outline: 0;
+}
+
+.quantity-nav {
+    float: left;
+    position: relative;
+    height: 42px;
+}
+
+.quantity-button {
+    position: relative;
+    background: #ebdaff;
+    cursor: pointer;
+    width: 20px;
+    text-align: center;
+    color: white;
+    /*color: #333;*/
+    font-size: 13px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+}
+
+.quantity-button.quantity-up {
+    position: absolute;
+    height: 14px;
+    top: 16px;
+    right: 28px;
+    border-bottom: 1px solid #eee;
+}
+
+.quantity-button.quantity-down {
+    position: absolute;
+    bottom: -44px;
+    right: 28px;
+    height: 14px;
+}
